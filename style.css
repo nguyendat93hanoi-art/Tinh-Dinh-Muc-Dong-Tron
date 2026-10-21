@@ -1,0 +1,225 @@
+:root {
+  color-scheme: light;
+  --ink: #202c35;
+  --muted: #60717d;
+  --accent: #e96b2c;
+  --accent-dark: #bd4c18;
+  --paper: #fffaf3;
+  --line: #f1d8c6;
+  --soft: #fff2e7;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 28px 16px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height: 1.55;
+}
+
+.container {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  padding: 22px 18px 26px;
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 10px;
+  border-radius: 17px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 28px;
+  box-shadow: 0 8px 22px #e96b2c33;
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  color: var(--accent-dark);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+
+.intro {
+  max-width: 560px;
+  margin: 12px auto 0;
+  color: var(--muted);
+}
+
+.warning {
+  margin: 0 0 18px;
+  padding: 16px 18px;
+  border: 1px solid #e9bd83;
+  border-left: 5px solid #d98a2b;
+  border-radius: 12px;
+  background: #fff4df;
+  color: #513b20;
+}
+
+.warning strong { color: #754411; }
+.warning p { margin: 4px 0 0; }
+
+.panel, .formula {
+  margin-top: 18px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+  box-shadow: 0 6px 24px #53301608;
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 18px;
+}
+
+.number {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--accent-dark);
+  font-weight: 800;
+}
+
+h2 { margin: 0; font-size: 1.16rem; line-height: 1.35; }
+.section-heading p { margin: 5px 0 0; color: var(--muted); font-size: .94rem; }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+label {
+  display: block;
+  min-width: 0;
+  font-size: .92rem;
+  font-weight: 700;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+  padding: 12px 13px;
+  border: 1px solid #d7dfe4;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 500;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px #e96b2c1c;
+}
+
+.field-hint { margin: 10px 0 0; color: var(--muted); font-size: .85rem; }
+
+button {
+  display: block;
+  width: 100%;
+  margin-top: 17px;
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  transition: background .15s, transform .15s;
+}
+
+button:hover { background: var(--accent-dark); }
+button:active { transform: translateY(1px); }
+button:focus-visible { outline: 3px solid #f3b28e; outline-offset: 2px; }
+
+.result {
+  margin-top: 15px;
+  min-height: 54px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: #f5f8fa;
+  border: 1px solid #e1e9ed;
+  color: #304653;
+  overflow-wrap: anywhere;
+}
+
+.result.success {
+  background: #eef8f0;
+  border-color: #c8e7ce;
+  color: #1e512d;
+}
+.result.error {
+  background: #fff1ed;
+  border-color: #f2c4b9;
+  color: #8c2f1d;
+}
+.result p { margin: 3px 0; }
+.result strong { font-weight: 800; }
+
+.formula h2 { margin-bottom: 12px; }
+.formula-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0e6df;
+}
+.formula-row:last-of-type { border-bottom: 0; }
+.formula-row span { color: var(--muted); }
+code {
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: #fff2e7;
+  color: #8a3d16;
+  font-size: .95rem;
+  white-space: nowrap;
+}
+.formula-note { margin: 12px 0 0; color: var(--muted); font-size: .88rem; }
+
+footer {
+  padding: 22px 8px 6px;
+  color: #7c878d;
+  font-size: .82rem;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  body { padding: 12px 10px 22px; }
+  .hero { padding: 17px 8px 21px; }
+  .panel, .formula { padding: 17px 14px; }
+  .form-grid { grid-template-columns: 1fr; gap: 12px; }
+  .section-heading { gap: 10px; }
+  .formula-row { align-items: flex-start; flex-direction: column; gap: 5px; }
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Công cụ học tập tính tiết diện dây đồng tròn và ước tính dòng theo mật độ dòng do người dùng nhập.">
+  <title>Tính dây đồng tròn</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="logo-mark" aria-hidden="true">⚡</div>
+      <p class="eyebrow">CÔNG CỤ TÍNH TOÁN</p>
+      <h1>Tính dây đồng tròn</h1>
+      <p class="intro">Tính tiết diện lõi đồng từ đường kính, hoặc tính đường kính sơ bộ từ dòng điện yêu cầu.</p>
+    </header>
+
+    <aside class="warning" role="note">
+      <strong>Lưu ý an toàn điện</strong>
+      <p>Kết quả dòng điện ở đây chỉ là <strong>ước tính theo mật độ dòng J do bạn tự nhập</strong>, không phải dòng định mức an toàn được chứng nhận. Dòng cho phép thực tế còn phụ thuộc loại cách điện, cách lắp đặt, nhiệt độ môi trường, số ruột dẫn mang tải, điều kiện tản nhiệt và sụt áp. Không dùng riêng công cụ này để chọn dây cho hệ thống điện thực tế.</p>
+    </aside>
+
+    <section class="panel" aria-labelledby="section-current-title">
+      <div class="section-heading">
+        <span class="number">01</span>
+        <div>
+          <h2 id="section-current-title">Từ đường kính → dòng ước tính</h2>
+          <p>Nhập đường kính lõi đồng trần của một sợi. Nếu dây gồm nhiều sợi nhỏ giống nhau, điền số sợi.</p>
+        </div>
+      </div>
+      <div class="form-grid">
+        <label for="diameter">Đường kính mỗi sợi đồng (mm)
+          <input id="diameter" type="number" min="0" step="any" placeholder="Ví dụ: 1.6">
+        </label>
+        <label for="strandCount">Số sợi đồng song song
+          <input id="strandCount" type="number" min="1" step="1" value="1">
+        </label>
+        <label for="density">Mật độ dòng J (A/mm²)
+          <input id="density" type="number" min="0" step="any" placeholder="Nhập J theo tiêu chuẩn/thiết kế">
+        </label>
+      </div>
+      <p class="field-hint">Chỉ đo phần lõi đồng, không lấy đường kính ngoài gồm lớp cách điện. Chưa biết J thì có thể để trống để chỉ tính tiết diện.</p>
+      <button id="calculateCurrent" type="button">Tính tiết diện và dòng</button>
+      <div id="currentResult" class="result" aria-live="polite">Kết quả sẽ hiển thị tại đây.</div>
+    </section>
+
+    <section class="panel" aria-labelledby="section-size-title">
+      <div class="section-heading">
+        <span class="number">02</span>
+        <div>
+          <h2 id="section-size-title">Từ dòng yêu cầu → đường kính sơ bộ</h2>
+          <p>Dùng để giải ngược theo mật độ dòng J đã được xác định phù hợp với ứng dụng.</p>
+        </div>
+      </div>
+      <div class="form-grid">
+        <label for="requiredCurrent">Dòng điện yêu cầu (A)
+          <input id="requiredCurrent" type="number" min="0" step="any" placeholder="Ví dụ: 10">
+        </label>
+        <label for="designDensity">Mật độ dòng J (A/mm²)
+          <input id="designDensity" type="number" min="0" step="any" placeholder="Nhập J theo tiêu chuẩn/thiết kế">
+        </label>
+        <label for="designStrands">Số sợi đồng bằng nhau
+          <input id="designStrands" type="number" min="1" step="1" value="1">
+        </label>
+      </div>
+      <button id="calculateSize" type="button">Tính tiết diện và đường kính</button>
+      <div id="sizeResult" class="result" aria-live="polite">Kết quả sẽ hiển thị tại đây.</div>
+    </section>
+
+    <section class="formula" aria-labelledby="formula-title">
+      <h2 id="formula-title">Công thức sử dụng</h2>
+      <div class="formula-row"><span>Tiết diện một sợi tròn</span><code>S₁ = π × d² / 4</code></div>
+      <div class="formula-row"><span>Tổng tiết diện đồng</span><code>S = S₁ × n</code></div>
+      <div class="formula-row"><span>Dòng ước tính theo J</span><code>I = J × S</code></div>
+      <div class="formula-row"><span>Đường kính tương đương của một sợi</span><code>d = √(4 × S / π)</code></div>
+      <p class="formula-note">Trong đó: d là đường kính lõi đồng (mm), n là số sợi, S là tiết diện đồng (mm²), J là mật độ dòng do người dùng nhập (A/mm²).</p>
+    </section>
+
+    <footer>
+      <p>Công cụ tham khảo / học tập — cần kiểm tra theo tiêu chuẩn áp dụng và điều kiện lắp đặt thực tế.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
